@@ -646,5 +646,28 @@
       $$('.os-pane').forEach((p) => (p.hidden = p.dataset.os !== b.dataset.os));
     }));
     if (/Windows/i.test(navigator.userAgent)) { const w = $('.tabs-os button[data-os="win"]'); if (w) w.click(); }
+
+    /* ---------- Stealth Demo Toggle ---------- */
+    const btnSeeSelf = $('#btnSeeSelf');
+    const btnSeeInterviewer = $('#btnSeeInterviewer');
+    const stealthHud = $('#stealthHud');
+    const recruiterWatermark = $('#recruiterWatermark');
+
+    if (btnSeeSelf && btnSeeInterviewer) {
+      btnSeeSelf.addEventListener('click', () => {
+        btnSeeSelf.classList.add('active');
+        btnSeeInterviewer.classList.remove('active');
+        stealthHud.classList.remove('hidden-hud');
+        recruiterWatermark.classList.remove('visible');
+      });
+
+      btnSeeInterviewer.addEventListener('click', () => {
+        btnSeeInterviewer.classList.add('active');
+        btnSeeSelf.classList.remove('active');
+        stealthHud.classList.add('hidden-hud');
+        recruiterWatermark.classList.add('visible');
+      });
+    }
   })();
 })();
+
