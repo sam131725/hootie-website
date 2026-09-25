@@ -964,3 +964,13 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0; letter-s
   .hl { white-space: normal; }
   .bubble { max-width: 150px; font-size: 12px; }
 }
+
+/* ---------- Fix: content clipped on the right on phones ----------
+   A "1fr" grid column can't shrink below its widest child (the code demo),
+   so the whole hero was wider than the screen. minmax(0,1fr) + min-width:0 fixes it. */
+.hero-grid > *, .demo-grid > *, .practice > *, .walk > *, .multi > *, .fb-grid > * { min-width: 0; }
+.stealth-demo-wrapper, .mac-window, .mac-body, .code-editor, .editor-content { min-width: 0; max-width: 100%; }
+.code-block { max-width: 100%; overflow-x: auto; }
+@media (max-width: 900px) {
+  .hero-grid, .demo-grid, .practice, .walk, .multi, .fb-grid { grid-template-columns: minmax(0, 1fr); }
+}
