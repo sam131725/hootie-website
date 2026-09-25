@@ -66,7 +66,7 @@
   });
 
   /* ---------- Reveal on scroll ---------- */
-  const revealEls = $$('.section-head, .demo-grid, .steps li, .practice, .feature, .use, .eth, .sg, .plan, .faq details, .download-inner');
+  const revealEls = $$('.section-head, .demo-grid, .walk, .g-step, .steps li, .practice, .feature, .use, .eth, .sg, .plan, .faq details, .download-inner');
   revealEls.forEach((el) => el.classList.add('reveal'));
   const io = new IntersectionObserver(
     (entries) =>
@@ -507,5 +507,144 @@
       intel.classList.replace('btn-ghost', 'btn-primary'); intel.classList.remove('light');
       intel.parentNode.insertBefore(intel, arm);
     }
+  })();
+  /* ---------- Setup walkthrough (animated "video") ---------- */
+  (() => {
+    const walk = $('#walk');
+    if (!walk) return;
+    const mock = $('#mock');
+    const video = $('#walkVideo');
+    // If a real screen recording exists at assets/setup.mp4, show it instead of the animation.
+    fetch('assets/setup.mp4', { method: 'HEAD' }).then((r) => {
+      if (r.ok && (r.headers.get('content-type') || '').includes('video')) {
+        mock.hidden = true; video.hidden = false; video.controls = true;
+      }
+    }).catch(() => {});
+
+    const el = (id) => $('#' + id);
+    const steps = $$('#walkSteps li');
+    const cursor = el('mCursor');
+    const KEYS = ['sk-ant-••••••••A1f', 'sk-ant-••••••••9Qz'];
+    let step = 0, playing = true, timer = null, typing = null, token = 0;
+
+    function moveCursor(target) {
+      if (!target) return;
+      const m = mock.getBoundingClientRect(), r = target.getBoundingClientRect();
+      cursor.style.left = (r.left - m.left + r.width * 0.6) + 'px';
+      cursor.style.top = (r.top - m.top + r.height * 0.55) + 'px';
+    }
+    function typeInto(node, text, speed, t) {
+      return new Promise((res) => {
+        let i = 0; clearInterval(typing);
+        typing = setInterval(() => {
+          if (t !== token) { clearInterval(typing); return res(); }
+          node.textContent = text.slice(0, ++i);
+          if (i >= text.length) { clearInterval(typing); res(); }
+        }, reduce ? 0 : speed);
+      });
+    }
+    function view(which) {
+      el('mHud').hidden = which !== 'hud';
+      el('mSettings').hidden = which !== 'settings';
+    }
+    function resetSettings(upTo) {
+      el('mProvider').textContent = upTo >= 1 ? 'Anthropic (Claude)' : 'OpenAI';
+      el('mLlm').textContent = upTo >= 3 ? KEYS.join('\n') : '';
+      el('mLlmBadge').textContent = upTo >= 3 ? 'Active key: 1 / 2' : 'Active key: none';
+      el('mLlmBadge').classList.toggle('ok', upTo >= 3);
+      el('mGroq').textContent = upTo >= 4 ? 'gsk_••••••••Xw2' : '';
+      el('mGroqBadge').textContent = upTo >= 4 ? 'Active key: 1 / 1' : 'Active key: none';
+      el('mGroqBadge').classList.toggle('ok', upTo >= 4);
+      el('mResume').textContent = upTo >= 5 ? '✓ resume.pdf' : '📄 Upload resume';
+      el('mResume').classList.toggle('done', upTo >= 5);
+      $$('.m-focus', mock).forEach((n) => n.classList.remove('m-focus'));
+    }
+    function resetHud() {
+      el('mHudStatus').textContent = 'Hootie is ready';
+      $('.m-status', mock).classList.remove('on');
+      el('mTranscript').innerHTML = '<span class="m-dim">Waiting for audio…</span>';
+      el('mAnswer').innerHTML = '<span class="m-dim">Answers appear here</span>';
+      el('mToast').classList.remove('show');
+    }
+
+    async function show(n) {
+      const t = ++token;
+      step = n;
+      steps.forEach((li, i) => { li.classList.toggle('on', i === n); li.classList.toggle('done', i < n); });
+      el('mGear').classList.remove('hit'); el('mSave').classList.remove('hit');
+      const wait = (ms) => new Promise((r) => setTimeout(r, reduce ? 0 : ms));
+      if (n === 0) {
+        resetHud(); view('hud'); moveCursor(el('mTranscript'));
+        await wait(500); if (t !== token) return;
+        moveCursor(el('mGear')); await wait(700); if (t !== token) return;
+        el('mGear').classList.add('hit');
+      } else if (n >= 1 && n <= 4) {
+        view('settings'); resetSettings(n);
+        if (n === 1) { moveCursor(el('mProvider')); await wait(600); if (t !== token) return; el('mProvider').classList.add('m-focus'); el('mProvider').textContent = 'Anthropic (Claude)'; }
+        if (n === 2) {
+          const a = el('mLlm'); moveCursor(a); a.classList.add('m-focus');
+          await typeInto(a, KEYS.join('\n'), 45, t); if (t !== token) return;
+          el('mLlmBadge').textContent = 'Active key: 1 / 2'; el('mLlmBadge').classList.add('ok');
+        }
+        if (n === 3) {
+          const g = el('mGroq'); moveCursor(g); g.classList.add('m-focus');
+          await typeInto(g, 'gsk_••••••••Xw2', 55, t); if (t !== token) return;
+          el('mGroqBadge').textContent = 'Active key: 1 / 1'; el('mGroqBadge').classList.add('ok');
+        }
+        if (n === 4) {
+          moveCursor(el('mResume')); await wait(600); if (t !== token) return;
+          el('mResume').textContent = '✓ resume.pdf'; el('mResume').classList.add('done');
+          await wait(500); if (t !== token) return;
+          moveCursor(el('mSave')); await wait(650); if (t !== token) return;
+          el('mSave').classList.add('hit');
+        }
+      } else if (n === 5 || n === 6) {
+        view('hud'); resetHud();
+        $('.m-status', mock).classList.add('on');
+        el('mHudStatus').textContent = 'Listening · mock interview';
+        moveCursor(el('mAnswer'));
+        el('mTranscript').innerHTML = '<b>Interviewer</b> ';
+        const tspan = document.createElement('span'); el('mTranscript').appendChild(tspan);
+        await typeInto(tspan, 'Tell me about a project you are proud of.', 28, t); if (t !== token) return;
+        await wait(400); if (t !== token) return;
+        el('mAnswer').innerHTML = '<ul style="padding:0;margin:0"><li>Lead with the impact (a number)</li><li>Your role and the hard part</li><li>What you would do differently</li></ul>';
+        if (n === 6) {
+          await wait(500); if (t !== token) return;
+          el('mToast').classList.add('show');
+        }
+      }
+    }
+
+    function schedule() {
+      clearTimeout(timer);
+      if (!playing) return;
+      const dur = [2200, 2000, 3400, 2600, 3000, 3600, 3400][step] || 2500;
+      timer = setTimeout(() => { show((step + 1) % steps.length).then(schedule); }, dur);
+    }
+    function go(n) { show(n).then(schedule); }
+
+    steps.forEach((li, i) => li.addEventListener('click', () => { go(i); }));
+    $('#walkNext').addEventListener('click', () => go((step + 1) % steps.length));
+    $('#walkPrev').addEventListener('click', () => go((step - 1 + steps.length) % steps.length));
+    const playBtn = $('#walkPlay');
+    playBtn.addEventListener('click', () => {
+      playing = !playing;
+      playBtn.textContent = playing ? '⏸ Pause' : '▶ Play';
+      if (playing) schedule(); else clearTimeout(timer);
+    });
+
+    // Start when the walkthrough scrolls into view.
+    const wio = new IntersectionObserver((en) => {
+      if (en[0].isIntersecting) { wio.disconnect(); go(0); }
+    }, { threshold: 0.3 });
+    wio.observe(walk);
+    resetSettings(0); resetHud();
+
+    // OS tabs in step 1
+    $$('.tabs-os button').forEach((b) => b.addEventListener('click', () => {
+      $$('.tabs-os button').forEach((x) => x.classList.toggle('active', x === b));
+      $$('.os-pane').forEach((p) => (p.hidden = p.dataset.os !== b.dataset.os));
+    }));
+    if (/Windows/i.test(navigator.userAgent)) { const w = $('.tabs-os button[data-os="win"]'); if (w) w.click(); }
   })();
 })();

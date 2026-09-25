@@ -50,6 +50,7 @@
       </a>
       <nav class="nav-links" id="navLinks">
         <a href="#demo">Demo</a>
+        <a href="#setup">Setup</a>
         <a href="#practice">Practice</a>
         <a href="#use-cases">Use cases</a>
         <a href="#ethics">Ethics</a>
@@ -155,6 +156,165 @@
       </div>
     </section>
 
+
+    <!-- ============ SETUP GUIDE ============ -->
+    <section class="section setup" id="setup">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Setup guide</span>
+          <h2>Up and running in 5 minutes</h2>
+          <p>Install Hootie, add your AI keys and start your first mock interview. Watch the walkthrough, then follow the steps.</p>
+        </div>
+
+        <!-- Animated walkthrough ("video") -->
+        <div class="walk" id="walk">
+          <div class="walk-screen">
+            <video class="walk-video" id="walkVideo" src="assets/setup.mp4" muted loop playsinline preload="none" hidden></video>
+            <div class="mock" id="mock" aria-hidden="true">
+              <div class="mock-bar">
+                <img src="assets/favicon.svg" alt="" width="20" height="20" /><b>Hootie</b>
+                <span class="mock-gear" id="mGear">⚙</span>
+              </div>
+              <!-- HUD view -->
+              <div class="mock-view" id="mHud">
+                <div class="m-status"><span class="live-dot"></span><span id="mHudStatus">Hootie is ready</span></div>
+                <div class="m-label">Transcript</div>
+                <div class="m-box" id="mTranscript"><span class="m-dim">Waiting for audio…</span></div>
+                <div class="m-label">Answers</div>
+                <div class="m-box m-ans" id="mAnswer"><span class="m-dim">Answers appear here</span></div>
+                <div class="m-toast" id="mToast">⚠ Key 1 hit its limit → switched to key 2</div>
+              </div>
+              <!-- Settings view -->
+              <div class="mock-view" id="mSettings" hidden>
+                <div class="m-field"><span>AI provider</span><div class="m-select" id="mProvider">OpenAI</div></div>
+                <div class="m-field"><span>LLM API keys <em>(one per line)</em></span><div class="m-area" id="mLlm"></div><small class="m-badge" id="mLlmBadge">Active key: none</small></div>
+                <div class="m-field"><span>Groq keys <em>(for audio)</em></span><div class="m-area short" id="mGroq"></div><small class="m-badge" id="mGroqBadge">Active key: none</small></div>
+                <div class="m-field"><span>Resume</span><div class="m-file" id="mResume">📄 Upload resume</div></div>
+                <div class="m-save" id="mSave">Save &amp; return</div>
+              </div>
+              <div class="m-cursor" id="mCursor"></div>
+            </div>
+          </div>
+          <div class="walk-side">
+            <ol class="walk-steps" id="walkSteps">
+              <li data-s="0"><b>Open Settings</b><span>Click the gear in the top bar.</span></li>
+              <li data-s="1"><b>Pick your AI</b><span>OpenAI, Claude or Gemini.</span></li>
+              <li data-s="2"><b>Paste your AI keys</b><span>One per line. Add as many as you like.</span></li>
+              <li data-s="3"><b>Paste your Groq key</b><span>Free. Turns speech into text.</span></li>
+              <li data-s="4"><b>Add your resume &amp; save</b><span>Answers use your own experience.</span></li>
+              <li data-s="5"><b>Start practising</b><span>Hootie listens and coaches live.</span></li>
+              <li data-s="6"><b>Keys switch automatically</b><span>If one runs out, the next takes over.</span></li>
+            </ol>
+            <div class="walk-ctrl">
+              <button type="button" class="btn btn-ghost btn-sm" id="walkPrev" aria-label="Previous step">←</button>
+              <button type="button" class="btn btn-primary btn-sm" id="walkPlay">⏸ Pause</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="walkNext" aria-label="Next step">→</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step-by-step -->
+        <ol class="guide">
+          <li class="g-step">
+            <span class="g-num">1</span>
+            <div class="g-body">
+              <h3>Download &amp; install</h3>
+              <div class="tabs-os" role="tablist">
+                <button type="button" class="active" data-os="mac" role="tab">Mac</button>
+                <button type="button" data-os="win" role="tab">Windows</button>
+                <button type="button" data-os="chrome" role="tab">Chrome</button>
+              </div>
+              <ul class="g-list os-pane" data-os="mac">
+                <li>Download the <a href="#download">Mac installer</a>: <b>Apple Silicon</b> for M1–M4 Macs, <b>Intel</b> for older ones.</li>
+                <li>Open the .dmg and drag the owl into <b>Applications</b>.</li>
+                <li>First time only: right-click Hootie in Applications → <b>Open</b> → Open.</li>
+                <li>When asked, allow <b>Microphone</b> and <b>Screen Recording</b> (System Settings → Privacy &amp; Security), then reopen Hootie.</li>
+              </ul>
+              <ul class="g-list os-pane" data-os="win" hidden>
+                <li>Download the <a href="#download">Windows installer</a> (or the portable .exe if you can't install apps).</li>
+                <li>If Windows shows "Windows protected your PC", click <b>More info → Run anyway</b>.</li>
+                <li>Finish the installer and open Hootie from the Start menu.</li>
+              </ul>
+              <ul class="g-list os-pane" data-os="chrome" hidden>
+                <li>The Chrome Web Store listing is coming soon. Until then, use the desktop app.</li>
+                <li>Once it's live: click <b>Add to Chrome</b>, pin the owl, and open it during a Google Meet call.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="g-step">
+            <span class="g-num">2</span>
+            <div class="g-body">
+              <h3>Get an AI key <span class="g-tag">pick one</span></h3>
+              <p>This is the "brain" that writes your coaching. You pay the provider directly for what you use (Gemini has a free tier to start).</p>
+              <div class="keys">
+                <a class="key-card" href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">
+                  <b>OpenAI</b><span>platform.openai.com → API keys</span><code>sk-…</code>
+                </a>
+                <a class="key-card" href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">
+                  <b>Claude (Anthropic)</b><span>console.anthropic.com → API keys</span><code>sk-ant-…</code>
+                </a>
+                <a class="key-card" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">
+                  <b>Google Gemini</b><span>aistudio.google.com → Get API key</span><code>AIza…</code>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li class="g-step">
+            <span class="g-num">3</span>
+            <div class="g-body">
+              <h3>Get a free Groq key <span class="g-tag lime">for audio</span></h3>
+              <p>Groq turns what's being said into text, fast. Sign up at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com → API Keys</a> and create a key. It starts with <code>gsk_</code>.</p>
+            </div>
+          </li>
+
+          <li class="g-step">
+            <span class="g-num">4</span>
+            <div class="g-body">
+              <h3>Paste your keys in Settings</h3>
+              <ul class="g-list">
+                <li>Open Hootie and click the <b>⚙ gear</b>.</li>
+                <li>Choose your <b>AI provider</b>, then paste your key(s) into <b>LLM API Keys</b>.</li>
+                <li>Paste your Groq key(s) into <b>Groq / Whisper Keys</b>.</li>
+                <li>Upload your <b>resume</b> (PDF, TXT or MD) and click <b>Save &amp; Return</b>.</li>
+              </ul>
+              <div class="multi">
+                <div class="multi-demo" aria-hidden="true">
+                  <div class="md-label">LLM API Keys</div>
+                  <pre>sk-ant-••••••••••••A1f
+sk-ant-••••••••••••9Qz
+sk-ant-••••••••••••L7p</pre>
+                  <div class="md-badge">Active key: 1 / 3</div>
+                </div>
+                <div class="multi-text">
+                  <h4>💡 Yes, you can paste more than one key</h4>
+                  <p>Put <b>one key per line</b> (commas work too). Hootie uses the first key, and if it hits a rate limit, runs out of credit or stops working, it <b>switches to the next one automatically</b>, mid-interview, without stopping.</p>
+                  <ul>
+                    <li>The badge shows which key is active, e.g. <b>Active key: 2 / 3</b>.</li>
+                    <li>"All keys exhausted" means it's time to top up or add a fresh key.</li>
+                    <li>All keys in the box should be for the provider you picked. The same works for Groq keys.</li>
+                    <li>Use keys you own (like a personal and a backup key). Don't create extra accounts just to get around free limits: providers don't allow it.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="g-step">
+            <span class="g-num">5</span>
+            <div class="g-body">
+              <h3>Start your mock interview</h3>
+              <ul class="g-list">
+                <li>Confirm the consent screen (everyone on the call has agreed).</li>
+                <li>Click <b>🎙 Capture audio</b>. The status turns red: Hootie is listening.</li>
+                <li>Questions appear in the transcript and coaching shows up in seconds. Type your own question anytime, or click <b>📸 Context</b> to read a question off your screen.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
 
     <!-- ============ USE CASES ============ -->
     <section class="section" id="use-cases">
@@ -479,6 +639,10 @@
           <details>
             <summary>Can I use Hootie in a call with other people?</summary>
             <p>Only with everyone's permission. Hootie asks you to confirm that everyone on the call has agreed before it starts listening. Recording or transcribing people without consent may be illegal where you live, and many companies don't allow AI help during real interviews.</p>
+          </details>
+          <details>
+            <summary>Can I add more than one API key?</summary>
+            <p>Yes. Paste one key per line in Settings, for both your AI provider and Groq. If a key hits its limit or runs out of credit, Hootie automatically switches to the next one. See the <a href="#setup">setup guide</a>.</p>
           </details>
           <details>
             <summary>Does Hootie read my screen?</summary>
