@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hootie: Real-time AI Mock Interviews &amp; Interview Coach</title>
+  <meta name="description" content="Hootie is a real-time AI mock interview tool. Practice with an AI interviewer that listens, asks follow-ups and coaches your answers live. Free for Mac, Windows and Chrome." />
+  <link rel="canonical" href="https://gethootie.ai/" />
+  <meta name="theme-color" content="#14122E" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hootie" />
+  <meta property="og:title" content="Hootie: Real-time AI Mock Interviews" />
+  <meta property="og:description" content="Practice with an AI interviewer that listens, asks follow-ups and coaches you live." />
+  <meta property="og:url" content="https://gethootie.ai/" />
+  <meta property="og:image" content="https://gethootie.ai/assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Hootie",
+    "alternateName": "Hootie AI",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "macOS, Windows, Chrome",
+    "description": "Hootie is a real-time AI mock interview tool. It listens to your answers, asks follow-up questions and gives live coaching, with a desktop app for Mac and a Chrome extension for Google Meet.",
+    "url": "https://gethootie.ai/",
+    "image": "https://gethootie.ai/assets/icon-512.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+  }
+  </script>
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top" aria-label="Hootie home">
+        <img src="assets/favicon.svg" alt="" width="32" height="32" />
+        <span>Hootie</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#demo">Demo</a>
+        <a href="#practice">Practice</a>
+        <a href="#use-cases">Use cases</a>
+        <a href="#ethics">Ethics</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary btn-sm nav-cta" href="#download">Download</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="pill"><span class="live-dot"></span> Real-time AI mock interviews</span>
+          <h1>Your wise owl for <span class="hl">interviews</span>.</h1>
+          <p class="lead">Hootie is an AI interviewer that listens as you speak, asks real follow-ups and coaches your answers live. Practise the interview before it's real.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#download">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9c-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.8-4.2zM14 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.3.7-3 1.5-.7.7-1.3 1.9-1.1 3.1 1.2.1 2.3-.6 3.1-1.4z"/></svg>
+              Download for Mac
+            </a>
+            <a class="btn btn-ghost" href="#demo">See it live ↓</a>
+          </div>
+          <ul class="trust">
+            <li>✓ Free to start</li>
+            <li>✓ No account, no database</li>
+            <li>✓ English, Hindi &amp; Hinglish</li>
+          </ul>
+        </div>
+
+        <div class="hero-owl" aria-hidden="true">
+          <div class="owl-glow"></div>
+          <svg class="owl" id="owl" viewBox="0 0 120 120">
+            <rect x="4" y="4" width="112" height="112" rx="28" fill="#312E81"/>
+            <path class="tuft" d="M28 40 L32 22 L46 34 Z" fill="#C6F432"/>
+            <path class="tuft" d="M92 40 L88 22 L74 34 Z" fill="#C6F432"/>
+            <circle cx="42" cy="60" r="20" fill="#C6F432"/>
+            <circle cx="78" cy="60" r="20" fill="#C6F432"/>
+            <g class="pupil" data-cx="42" data-cy="60"><circle cx="42" cy="60" r="9" fill="#1E1B4B"/><circle cx="45" cy="57" r="2.4" fill="#fff" opacity=".85"/></g>
+            <g class="pupil live" data-cx="78" data-cy="60"><circle cx="78" cy="60" r="9" fill="#FF4D4D"/><circle cx="81" cy="57" r="2.4" fill="#fff" opacity=".8"/></g>
+            <rect class="lid" x="20" y="38" width="80" height="0" fill="#312E81"/>
+            <path d="M54 82 L66 82 L60 92 Z" fill="#FFB020"/>
+          </svg>
+          <div class="bubble b1">"Walk me through a project you're proud of."</div>
+          <div class="bubble b2">💡 Lead with impact, then the how.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIVE DEMO ============ -->
+    <section class="section" id="demo">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Live demo</span>
+          <h2>Watch Hootie run an interview</h2>
+          <p>Pick a question. Hootie hears it, spots the question and coaches you in seconds.</p>
+        </div>
+
+        <div class="demo-grid">
+          <div class="demo-picker" role="tablist" aria-label="Demo questions">
+            <button class="chip active" data-demo="0">🧠 System design</button>
+            <button class="chip" data-demo="1">🙋 Tell me about yourself</button>
+            <button class="chip" data-demo="2">⚔️ A conflict at work</button>
+            <button class="chip" data-demo="3">📊 SQL question</button>
+            <p class="demo-note">This is a simulated demo. In the app, Hootie works with your real microphone and meeting audio.</p>
+          </div>
+
+          <div class="hud" id="hud">
+            <div class="hud-bar">
+              <img src="assets/favicon.svg" alt="" width="24" height="24" />
+              <b>Hootie</b>
+              <span class="hud-dots"><i></i><i></i><i></i></span>
+            </div>
+            <div class="hud-status"><span class="live-dot"></span><span id="hudStatus">Listening · mock interview</span></div>
+            <div class="hud-label">Transcript</div>
+            <div class="hud-transcript" id="hudTranscript"></div>
+            <div class="hud-label">Coaching</div>
+            <div class="hud-answers" id="hudAnswers"></div>
+            <div class="hud-ask"><span>Type a question…</span><b>Ask</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>Three steps to your first mock interview</h2>
+        </div>
+        <ol class="steps">
+          <li><span class="num">1</span><h3>Add your resume</h3><p>Upload your resume and the role you're after. Hootie tailors questions and coaching to you.</p></li>
+          <li><span class="num">2</span><h3>Start talking</h3><p>Hootie listens in real time, transcribes what's said and picks out every question.</p></li>
+          <li><span class="num">3</span><h3>Get coached live</h3><p>See crisp answer outlines, key points you missed and follow-ups to expect.</p></li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- ============ USE CASES ============ -->
+    <section class="section" id="use-cases">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Who it's for</span>
+          <h2>How people use Hootie</h2>
+          <p>A practice partner that's there at 2 am, never judges, and gets you ready for the real thing.</p>
+        </div>
+        <div class="uses">
+          <article class="use">
+            <span class="use-ico">🎓</span>
+            <h3>Campus placements</h3>
+            <p>Run mock rounds for aptitude, HR and technical interviews before placement season, and walk into the real one calm.</p>
+            <span class="use-tag">Students</span>
+          </article>
+          <article class="use">
+            <span class="use-ico">💻</span>
+            <h3>Tech interview prep</h3>
+            <p>Practise DSA, system design and SQL out loud. Hootie spots gaps in your explanation and tells you what interviewers look for.</p>
+            <span class="use-tag">Engineers &amp; analysts</span>
+          </article>
+          <article class="use">
+            <span class="use-ico">🔄</span>
+            <h3>Career switchers</h3>
+            <p>Moving into product, data or design? Learn the frameworks and turn your past experience into answers that fit the new role.</p>
+            <span class="use-tag">Switchers</span>
+          </article>
+          <article class="use">
+            <span class="use-ico">🗣️</span>
+            <h3>Speaking confidence</h3>
+            <p>Think in Hindi or Hinglish, answer in English. Practise until your answers come out clear, short and confident.</p>
+            <span class="use-tag">Non-native speakers</span>
+          </article>
+          <article class="use">
+            <span class="use-ico">🧑‍🏫</span>
+            <h3>Coaches &amp; colleges</h3>
+            <p>Give every student unlimited mock interviews and let mentors spend their time on the students who need them most.</p>
+            <span class="use-tag">Placement cells</span>
+          </article>
+          <article class="use">
+            <span class="use-ico">📝</span>
+            <h3>Meetings, with consent</h3>
+            <p>In calls where everyone has agreed, get a live transcript, quick answers to factual questions and notes you can export.</p>
+            <span class="use-tag">Teams</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRY A QUESTION ============ -->
+    <section class="section" id="practice">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Try it now</span>
+          <h2>Get hooted a question</h2>
+          <p>Choose your role and Hootie throws a real interview question at you. Think first, then reveal the answer outline.</p>
+        </div>
+
+        <div class="practice">
+          <div class="practice-controls">
+            <div class="roles" id="roles" role="radiogroup" aria-label="Role">
+              <button class="role active" data-role="sde" role="radio" aria-checked="true">💻 Software engineer</button>
+              <button class="role" data-role="pm" role="radio" aria-checked="false">🧭 Product manager</button>
+              <button class="role" data-role="data" role="radio" aria-checked="false">📊 Data analyst</button>
+              <button class="role" data-role="design" role="radio" aria-checked="false">🎨 Designer</button>
+              <button class="role" data-role="hr" role="radio" aria-checked="false">🤝 Behavioural</button>
+            </div>
+            <button class="btn btn-primary" id="hootBtn">🦉 Hoot me a question</button>
+          </div>
+
+          <div class="q-card" id="qCard">
+            <div class="q-meta"><span id="qRole">Software engineer</span><span id="qLevel" class="lvl">Medium</span></div>
+            <p class="q-text" id="qText">Press "Hoot me a question" to start.</p>
+            <div class="timer" id="timer" hidden>
+              <div class="timer-bar"><span id="timerFill"></span></div>
+              <small id="timerText">Think for 30s…</small>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="revealBtn" hidden>Reveal answer outline</button>
+            <ul class="outline" id="outline" hidden></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section alt" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2>Everything a great interview coach does, in real time</h2>
+        </div>
+        <div class="features">
+          <article class="feature"><span class="f-ico">🎙️</span><h3>Real-time listening</h3><p>Live transcription picks up every question the moment it's asked.</p></article>
+          <article class="feature"><span class="f-ico">📄</span><h3>Resume-aware</h3><p>Coaching uses your own experience, projects and tech stack.</p></article>
+          <article class="feature"><span class="f-ico">⚡</span><h3>Instant answer outlines</h3><p>Short bullets, a speakable script or a detailed breakdown: your choice.</p></article>
+          <article class="feature"><span class="f-ico">🧩</span><h3>Coding &amp; system design</h3><p>Code snippets with syntax highlighting, and structured design walk-throughs.</p></article>
+          <article class="feature"><span class="f-ico">🌏</span><h3>English, Hindi, Hinglish</h3><p>Practise in the language you're most comfortable thinking in.</p></article>
+          <article class="feature"><span class="f-ico">📸</span><h3>Screen context</h3><p>One click reads the question or code on your screen, so answers match exactly what you're looking at. Text recognition runs on your device.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ PRIVACY ============ -->
+    <section class="section privacy" id="privacy">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow light">Privacy</span>
+          <h2>Your sessions are yours. We never see them.</h2>
+          <p>Hootie has no accounts and no database. There's nothing on our side to leak, sell or hand over.</p>
+        </div>
+        <div class="privacy-grid">
+          <article class="p-card">
+            <span class="p-ico">🚫</span>
+            <h3>No account, no database</h3>
+            <p>No sign-up and no Hootie servers storing your data. We don't have your transcripts, answers or resume.</p>
+          </article>
+          <article class="p-card">
+            <span class="p-ico">💻</span>
+            <h3>Stays on your device</h3>
+            <p>Sessions, settings and your resume live on your own computer. Delete the folder and they're gone.</p>
+          </article>
+          <article class="p-card">
+            <span class="p-ico">🔑</span>
+            <h3>Straight to your AI</h3>
+            <p>Questions go directly from your device to the AI provider you choose, using your own key. Hootie is never in the middle.</p>
+          </article>
+          <article class="p-card">
+            <span class="p-ico">📸</span>
+            <h3>Screen text read locally</h3>
+            <p>When you capture screen context, text recognition (OCR) runs on your computer. Only the text you capture is sent to your AI.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ ETHICS ============ -->
+    <section class="section" id="ethics">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Ethics</span>
+          <h2>Practise, don't pretend</h2>
+          <p>Hootie is built to make you better at interviews, not to fake your way through one. Here's how we think about using it responsibly.</p>
+        </div>
+
+        <div class="ethics-grid">
+          <article class="eth do">
+            <h3><span>✓</span> Great ways to use Hootie</h3>
+            <ul>
+              <li>Mock interviews and practice sessions on your own</li>
+              <li>Reviewing your answers afterwards and learning the frameworks</li>
+              <li>Calls where everyone has been told and has agreed</li>
+              <li>Building real confidence you take into the room yourself</li>
+            </ul>
+          </article>
+          <article class="eth dont">
+            <h3><span>✕</span> Please don't</h3>
+            <ul>
+              <li>Use it in a real interview or exam where AI help isn't allowed</li>
+              <li>Record or transcribe people without their permission</li>
+              <li>Repeat answers you don't understand as if they were your own</li>
+              <li>Use it to mislead an employer about your skills</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="safeguards">
+          <div class="sg"><b>🤝 Consent first</b><span>Hootie asks you to confirm everyone on the call has agreed before it starts listening.</span></div>
+          <div class="sg"><b>📸 Screen on request</b><span>Your screen is only read when you click Context. Nothing runs in the background.</span></div>
+          <div class="sg"><b>⚖️ Know the rules</b><span>Recording laws differ by country and state, and many employers ban AI help in interviews. Check before you use it in any call.</span></div>
+        </div>
+
+        <p class="ethics-why">Why it matters: an answer you can't explain falls apart at the first follow-up question, and a job you got by pretending is a hard job to keep. The goal is for you to not need Hootie on the day.</p>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Pricing</span>
+          <h2>Start free. Upgrade when you're job hunting.</h2>
+        </div>
+        <div class="billing-toggle" role="group" aria-label="Billing period">
+          <button class="active" data-bill="month">Monthly</button>
+          <button data-bill="year">Yearly <em>save 30%</em></button>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <h3>Free</h3>
+            <p class="price"><span class="amt">₹0</span></p>
+            <p class="plan-sub">Bring your own AI key</p>
+            <ul>
+              <li>Unlimited mock interviews</li>
+              <li>Live transcript &amp; coaching</li>
+              <li>Mac app + Chrome extension</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="#download">Download free</a>
+          </article>
+          <article class="plan featured">
+            <span class="badge">Most popular</span>
+            <h3>Pro</h3>
+            <p class="price"><span class="amt" data-month="₹499" data-year="₹349">₹499</span><span class="per">/month</span></p>
+            <p class="plan-sub" data-month="Billed monthly" data-year="Billed ₹4,188 yearly">Billed monthly</p>
+            <ul>
+              <li>Everything in Free</li>
+              <li>Priority support</li>
+              <li>Resume-tailored question banks</li>
+              <li>Early access to new features</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#download">Get Pro</a>
+          </article>
+          <article class="plan">
+            <h3>Campus</h3>
+            <p class="price"><span class="amt">Custom</span></p>
+            <p class="plan-sub">For colleges &amp; bootcamps</p>
+            <ul>
+              <li>Seats for every student</li>
+              <li>Placement-season question sets</li>
+              <li>Progress dashboard</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="mailto:gethootie.ai@gmail.com?subject=Hootie%20Campus%20plan">Contact us</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ REVIEWS & FEEDBACK ============ -->
+    <section class="section" id="feedback">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Reviews &amp; feedback</span>
+          <h2>Tell the owl what you think</h2>
+          <p>Leave a review, share feedback, suggest a feature or report a bug. We read every message.</p>
+        </div>
+
+        <div class="fb-grid">
+          <aside class="reviews">
+            <h3>What people say</h3>
+            <div class="reviews-empty">
+              <img src="assets/favicon.svg" alt="" width="56" height="56" />
+              <p><b>No reviews yet.</b> Be one of the first!</p>
+              <small>We only show real reviews, and only when the person has said we can.</small>
+            </div>
+            <ul class="fb-points">
+              <li>💬 Feedback shapes what we build next</li>
+              <li>💡 The best suggestions get shipped with credit</li>
+              <li>🐞 Bugs usually get fixed within a week</li>
+            </ul>
+          </aside>
+
+          <form class="fb-form" id="fbForm" novalidate>
+            <fieldset class="fb-types">
+              <legend>What's this about?</legend>
+              <label><input type="radio" name="type" value="Review" checked /><span>⭐ Review</span></label>
+              <label><input type="radio" name="type" value="Feedback" /><span>💬 Feedback</span></label>
+              <label><input type="radio" name="type" value="Suggestion" /><span>💡 Suggestion</span></label>
+              <label><input type="radio" name="type" value="Bug" /><span>🐞 Bug</span></label>
+            </fieldset>
+
+            <div class="fb-row" id="ratingRow">
+              <span class="fb-label">Your rating</span>
+              <div class="stars" id="stars" role="radiogroup" aria-label="Rating">
+                <button type="button" data-v="1" aria-label="1 star">★</button>
+                <button type="button" data-v="2" aria-label="2 stars">★</button>
+                <button type="button" data-v="3" aria-label="3 stars">★</button>
+                <button type="button" data-v="4" aria-label="4 stars">★</button>
+                <button type="button" data-v="5" aria-label="5 stars">★</button>
+              </div>
+              <input type="hidden" name="rating" id="ratingInput" value="" />
+            </div>
+
+            <div class="fb-2col">
+              <label class="fb-field"><span>Name <em>(optional)</em></span><input name="name" autocomplete="name" placeholder="Priya S." /></label>
+              <label class="fb-field"><span>Role <em>(optional)</em></span><input name="role" placeholder="SDE-2 · Bengaluru" /></label>
+            </div>
+            <label class="fb-field"><span>Email <em>(optional, only if you want a reply)</em></span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" /></label>
+            <label class="fb-field"><span id="msgLabel">Your review</span><textarea name="message" id="fbMessage" rows="5" required placeholder="How did Hootie help you prepare?"></textarea></label>
+
+            <label class="fb-check" id="publishRow"><input type="checkbox" name="publish" value="yes" /><span>You can show my review on the website</span></label>
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <button type="submit" class="btn btn-primary btn-block" id="fbSubmit">Send to Hootie</button>
+            <p class="fb-status" id="fbStatus" role="status"></p>
+            <small class="fb-note">Feedback is emailed to the Hootie team. It's separate from the app, which never sends us your sessions.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section alt" id="faq">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions, answered</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>What is Hootie?</summary>
+            <p>Hootie is a real-time AI mock interview tool. It listens as you answer, recognises questions, and gives you live coaching and answer outlines so you can practise interviews realistically.</p>
+          </details>
+          <details>
+            <summary>How is Hootie different from other AI interview tools?</summary>
+            <p>Hootie works in real time on your own device. It's resume-aware, supports English, Hindi and Hinglish, and lets you bring your own AI key, so you can start free.</p>
+          </details>
+          <details>
+            <summary>Which platforms does it work on?</summary>
+            <p>There's a desktop app for macOS and Windows, and a Chrome extension that works with Google Meet.</p>
+          </details>
+          <details>
+            <summary>Is my data private?</summary>
+            <p>Yes. Hootie has no accounts and no database, so we never see your sessions. Transcripts, answers and your resume stay on your computer, and questions go straight to the AI provider you choose using your own key.</p>
+          </details>
+          <details>
+            <summary>Is it okay to use Hootie in a real interview?</summary>
+            <p>Hootie is made for practice. Many companies don't allow AI help during interviews, and using it there can get an offer withdrawn. Use Hootie to prepare, then go in and answer on your own. If you're unsure, ask the recruiter what's allowed.</p>
+          </details>
+          <details>
+            <summary>Can I use Hootie in a call with other people?</summary>
+            <p>Only with everyone's permission. Hootie asks you to confirm that everyone on the call has agreed before it starts listening. Recording or transcribing people without consent may be illegal where you live, and many companies don't allow AI help during real interviews.</p>
+          </details>
+          <details>
+            <summary>Does Hootie read my screen?</summary>
+            <p>Only when you click Context. Hootie captures your screen once, reads the text on your own computer, and adds it to the question so answers match what you're looking at. Nothing is recorded in the background.</p>
+          </details>
+          <details>
+            <summary>Do I need an OpenAI or Claude account?</summary>
+            <p>Yes. Paste an OpenAI, Anthropic (Claude) or Gemini key in Settings, plus a Groq key for audio transcription. Using your own key is what keeps your sessions private: they go straight to your AI provider, not through us.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="section download" id="download">
+      <div class="wrap download-inner">
+        <img src="assets/icon-192.png" alt="Hootie app icon" width="96" height="96" class="dl-icon" />
+        <h2>Rehearse the interview before it's real.</h2>
+        <p>Free for Mac, Windows and Chrome. Set up in under 2 minutes.</p>
+        <div class="cta-row center">
+          <a class="btn btn-primary" id="macDownload" href="https://github.com/sam131725/hootie-releases/releases/latest/download/Hootie-mac.dmg">Mac · Apple Silicon</a>
+          <a class="btn btn-ghost light" id="macIntelDownload" href="https://github.com/sam131725/hootie-releases/releases/latest/download/Hootie-mac-intel.dmg">Mac · Intel</a>
+          <a class="btn btn-ghost light" id="winDownload" href="https://github.com/sam131725/hootie-releases/releases/latest/download/Hootie-windows-setup.exe">Windows</a>
+          <a class="btn btn-ghost light" href="#" id="chromeLink">Add to Chrome</a>
+        </div>
+        <p class="mobile-note">📱 On your phone? Hootie runs on Mac, Windows and Chrome, so open this page on your laptop to install it.</p>
+        <small class="dl-note">Version 1.0.0 · Mac: Apple Silicon 111 MB, Intel 116 MB · Windows 10/11 64-bit: 89 MB (<a href="https://github.com/sam131725/hootie-releases/releases/latest/download/Hootie-windows-portable.exe">portable version, no install</a>) · <a href="https://github.com/sam131725/hootie-releases/releases/latest">All downloads</a><br>Which Mac? Apple menu → About This Mac: "Apple M…" means Apple Silicon, "Intel" means Intel.<br>First open on Mac: right-click Hootie in Applications → Open. On Windows: click More info → Run anyway.</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="logo" href="#top"><img src="assets/favicon.svg" alt="" width="26" height="26" /><span>Hootie</span></a>
+      <p>Real-time AI mock interviews. © <span id="year">2026</span> Hootie.</p>
+      <nav><a href="#ethics">Responsible use</a><a href="#faq">FAQ</a><a href="mailto:gethootie.ai@gmail.com">Contact</a><a href="#privacy">Privacy</a></nav>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

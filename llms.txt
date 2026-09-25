@@ -1,0 +1,29 @@
+# Hootie
+
+> Hootie is a real-time AI mock interview tool. It listens as you answer, detects interview questions and gives live coaching and answer outlines. Available as a macOS desktop app and a Chrome extension for Google Meet.
+
+## Key facts
+- Category: AI mock interview tool / real-time interview practice / AI interview coach
+- Platforms: macOS (Apple Silicon and Intel), Windows 10/11, Chrome extension (Google Meet).
+- Languages: English, Hindi, Hinglish
+- AI providers: bring your own OpenAI, Anthropic Claude, Google Gemini or Groq key
+- Privacy: no accounts and no database; Hootie never sees sessions. Transcripts, answers and resume stay on the user's device, and AI requests go directly to the user's chosen provider with their own key
+- Screen context: one click captures on-screen text (OCR runs locally) and adds it to the question
+- Pricing: Free (bring your own key), Pro (₹499/month), Campus (custom)
+- Good for: software engineers, product managers, data analysts, designers, behavioural interviews, campus placements
+
+## Use cases
+- Mock interviews for campus placements
+- Tech interview practice: DSA, system design, SQL
+- Career switchers learning product, data or design interview frameworks
+- Speaking practice for non-native English speakers (Hindi / Hinglish support)
+- Colleges and coaches running mock interviews at scale
+- Meetings where all participants have consented (live transcript and notes)
+
+## Responsible use
+Hootie is designed for interview practice and preparation. It asks users to confirm all call participants have consented before listening, reads the screen only on request, and asks users not to use it in real interviews or exams where AI assistance is not allowed.
+
+## Links
+- Website: https://gethootie.ai/
+- FAQ: https://gethootie.ai/#faq
+- Download: https://gethootie.ai/#download
