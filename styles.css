@@ -836,3 +836,95 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0; letter-s
   transform: translateY(0);
 }
 
+/* Responsive Scaling for Stealth Demo & Mobile Devices */
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: clamp(28px, 8vw, 42px);
+    line-height: 1.15;
+    word-break: break-word;
+  }
+  .stealth-demo-wrapper {
+    margin-top: 28px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .stealth-toggle-bar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+  .stealth-toggle-label {
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .stealth-toggle-group {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 3px;
+  }
+  .stealth-toggle-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    flex: 1 1 auto;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .mac-titlebar {
+    height: auto;
+    padding: 8px 12px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .mac-title {
+    display: none;
+  }
+  .mac-meet-status {
+    font-size: 10px;
+    padding: 3px 8px;
+    margin-left: auto;
+  }
+  .mac-body {
+    min-height: 270px;
+  }
+  .editor-sidebar {
+    width: 32px;
+    padding-top: 8px;
+    gap: 12px;
+  }
+  .sidebar-icon {
+    font-size: 13px;
+  }
+  .code-block {
+    padding: 12px 14px;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+  .floating-hud {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-width: calc(100% - 20px);
+    padding: 10px 12px;
+  }
+  .hud-bullet {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .recruiter-watermark {
+    bottom: 8px;
+    right: 8px;
+    left: 8px;
+    font-size: 10.5px;
+    padding: 6px 10px;
+    justify-content: center;
+  }
+}
+
+
